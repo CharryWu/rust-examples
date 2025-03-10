@@ -20,5 +20,5 @@ pub fn extend_msg(mut a: String) -> String {
 pub fn caller2() {
     let mut message = String::from("Hello");
     message = extend_msg(message);
-    println!("{}", message);
+    println!("Move example: caller2 message = {}", message);
 }
