@@ -1,3 +1,6 @@
+// At any given time, you can have either one mutable reference or any number of immutable references.
+// References must always be valid.
+
 pub fn caller1() {
     // String is a smart pointer that doesn't own the data
     // &String reference is a simple pointer that doesn't own the data
