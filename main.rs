@@ -15,6 +15,7 @@ fn main() {
     dereference_example::dereference_str();
     dereference_example::dereference_number();
     dereference_example::dereference_pointer();
+    dereference_example::assignDirectRefVal();
     cat::kitten::meow();
     stack::all();
 }

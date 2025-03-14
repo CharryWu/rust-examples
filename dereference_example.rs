@@ -23,3 +23,11 @@ pub fn dereference_pointer() {
         &a, b, c, d
     );
 }
+
+pub fn assignDirectRefVal() {
+    let mut double_ref = &&100;
+    println!("Before assign value = {}", double_ref);
+    double_ref = &&50;
+    println!("After assign value = {}", double_ref);
+    // double_ref // CANNOT return ref to value owned by a fn
+}
