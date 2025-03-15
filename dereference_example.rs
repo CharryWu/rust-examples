@@ -45,6 +45,10 @@ pub fn assign_double_ref_val() {
     c = double_ref;
 
     println!("double_ref addr = {:p}", double_ref);
+    println!(
+        "Address of original value 100 can be reached by dereference double_ref twice &(**double_ref) = {:p}",
+        &(**double_ref)
+    );
     println!("After assign c value = {}", c);
     println!("After assign c addr = {:p}", c);
 }
