@@ -7,7 +7,7 @@ mod stack;
 fn main() {
     copy_example::caller1();
     move_example::caller2();
-    reference_example::caller1();
+    reference_example::ref_assign_basic();
     reference_example::caller_mut_immut_reference();
     reference_example::caller_reference_scope();
     reference_example::caller_mut_immut_reference2();
@@ -15,7 +15,8 @@ fn main() {
     dereference_example::dereference_str();
     dereference_example::dereference_number();
     dereference_example::dereference_pointer();
-    dereference_example::assignDirectRefVal();
+    dereference_example::assign_direct_ref_val();
+    dereference_example::assign_double_ref_val();
     cat::kitten::meow();
     stack::all();
 }
