@@ -1,4 +1,5 @@
 pub fn all() {
+    println!("---------- stack::all ----------");
     c();
     d();
     f();
