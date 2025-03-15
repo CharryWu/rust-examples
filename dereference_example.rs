@@ -1,4 +1,5 @@
 pub fn dereference_str() {
+    println!("---------- dereference_example::dereference_str ----------");
     let mut message = String::from("Hello");
     let message2 = &mut message;
     message2.push_str(" World"); // automatic dereference, same as (*message2).push_str(" World");
@@ -7,6 +8,7 @@ pub fn dereference_str() {
 }
 
 pub fn dereference_number() {
+    println!("---------- dereference_example::dereference_number ----------");
     let a = 10;
     let b = &a;
     let c = &b;
@@ -14,7 +16,7 @@ pub fn dereference_number() {
 }
 
 pub fn dereference_pointer() {
-    println!("---------- dereference_pointer ----------");
+    println!("---------- dereference_example::dereference_pointer ----------");
     let a = 10;
     let b = &a;
     let c = &b;
@@ -26,7 +28,7 @@ pub fn dereference_pointer() {
 }
 
 pub fn assign_direct_ref_val() {
-    println!("---------- assign_direct_ref_val ----------");
+    println!("---------- dereference_example::assign_direct_ref_val ----------");
     let mut double_ref = &&100;
     println!("Before assign value = {}", double_ref);
     double_ref = &&50;
@@ -35,7 +37,7 @@ pub fn assign_direct_ref_val() {
 }
 
 pub fn assign_double_ref_val() {
-    println!("---------- assign_double_ref_val ----------");
+    println!("---------- dereference_example::assign_double_ref_val ----------");
     let a = 10;
     let b = &a;
     let mut c = &b;
