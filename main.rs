@@ -5,6 +5,7 @@ mod move_example;
 mod reference_example;
 mod slice_example;
 mod stack;
+mod type_utils;
 fn main() {
     copy_example::fn_arg_copied();
     move_example::mut_reuse_not_moved();
