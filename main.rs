@@ -6,7 +6,10 @@ mod reference_example;
 mod slice_example;
 mod stack;
 mod type_utils;
+mod types;
 fn main() {
+    types::define_basic_types();
+    types::define_compound_types();
     copy_example::fn_arg_copied();
     move_example::mut_reuse_not_moved();
     move_example::immu_moved_to_fn_arg();
@@ -21,6 +24,7 @@ fn main() {
     dereference_example::assign_direct_ref_val();
     dereference_example::assign_double_ref_val();
     slice_example::str_slice_example();
+    slice_example::str_slice_clone();
     cat::kitten::meow();
     stack::all();
 }

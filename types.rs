@@ -1,4 +1,6 @@
-fn define_basic_types() {
+use crate::type_utils;
+pub fn define_basic_types() {
+    println!("---------- types::define_basic_types ----------");
     let message = "Hello, world!";
     let num = 10;
     let small_num: u8 = 10; // unsinged int of 8 bits
@@ -10,19 +12,53 @@ fn define_basic_types() {
     let hex_num = 0xfa;
     let bin_num = 0b1010_1010;
     let byte_num = b'A';
+    let int_heap = Box::new(333);
 
-    println!("{}", message);
-    println!("{}", num);
-    println!("{}", small_num);
-    println!("{}", small_num_signed);
-    println!("{}", sys_num);
-    println!("{}", custom_num);
-    println!("{}", hex_num);
-    println!("{}", bin_num);
-    println!("{}", byte_num);
+    println!(
+        "message {} = {}",
+        type_utils::get_type_of(&message),
+        message
+    );
+    println!("num {} = {}", type_utils::get_type_of(&num), num);
+    println!(
+        "small_num {} = {}",
+        type_utils::get_type_of(&small_num),
+        small_num
+    );
+    println!(
+        "small_num_signed {} = {}",
+        type_utils::get_type_of(&small_num_signed),
+        small_num_signed
+    );
+    println!(
+        "sys_num {} = {}",
+        type_utils::get_type_of(&sys_num),
+        sys_num
+    );
+    println!(
+        "custom_num {} = {}",
+        type_utils::get_type_of(&custom_num),
+        custom_num
+    );
+    println!(
+        "hex_num {} = {}",
+        type_utils::get_type_of(&hex_num),
+        hex_num
+    );
+    println!(
+        "bin_num {} = {}",
+        type_utils::get_type_of(&bin_num),
+        bin_num
+    );
+    println!(
+        "byte_num {} = {}",
+        type_utils::get_type_of(&byte_num),
+        byte_num
+    );
 }
 
-fn define_compound_types() {
+pub fn define_compound_types() {
+    println!("---------- types::define_compound_types ----------");
     let tuples = (1.3, "Hello World!", true);
     println!("{:?}", tuples);
     println!("{} {} {}", tuples.0, tuples.1, tuples.2);
