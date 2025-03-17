@@ -1,6 +1,7 @@
 mod cat;
 mod copy_example;
 mod dereference_example;
+mod enum_example;
 mod move_example;
 mod reference_example;
 mod slice_example;
@@ -27,6 +28,7 @@ fn main() {
     slice_example::str_slice_example();
     slice_example::str_slice_clone();
     struct_example::struct_example_driver();
+    enum_example::enum_example_driver();
     cat::kitten::meow();
     stack::all();
 }

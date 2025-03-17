@@ -2,17 +2,17 @@
  * Rust does NOT have OOP features, but it has `struct` similar to C and Golang
  * Below is an example of struct field & method definitions in rust lang
  */
-struct Person {
-    first_name: String, // fields
-    last_name: String,
-    age: u32,
+pub struct Person {
+    pub first_name: String, // fields
+    pub last_name: String,
+    pub age: u32,
 }
 
 impl Person {
     /**
      * Constructor - any fn with arbitrary name `new` `from` can be ctor
      */
-    fn new() -> Person {
+    pub fn new() -> Person {
         Person {
             first_name: "Default first name".to_string(),
             last_name: "Default last name".to_string(),
@@ -23,14 +23,14 @@ impl Person {
     /**
      * Constructor with parameters
      */
-    fn from(first_name: String, last_name: String, age: u32) -> Person {
+    pub fn from(first_name: String, last_name: String, age: u32) -> Person {
         Person {
             first_name, // same variable arg can be used as field
             last_name,
             age,
         }
     }
-    fn clone(other: &Person) -> Person {
+    pub fn clone(other: &Person) -> Person {
         Person {
             first_name: other.first_name.clone(), // same variable arg can be used as field
             last_name: other.last_name.clone(),
@@ -39,7 +39,7 @@ impl Person {
     }
 
     // associated (static) function
-    fn associated_function() {
+    pub fn associated_function() {
         println!("Person::associated_function invoked!");
     }
 
@@ -53,7 +53,7 @@ impl Person {
      * Within an impl block, the type Self is an alias for the current type `Person`
      * You can also declare `change_age` as `fn change_age(self: &Self)`.
      */
-    fn change_age(&mut self, new_age: u32) {
+    pub fn change_age(&mut self, new_age: u32) {
         println!("Person::change_age before age={}", self.age);
         self.age = new_age;
         println!("Person::change_age after new age={}", self.age);
@@ -66,14 +66,14 @@ pub fn struct_example_driver() {
     let default_person = Person::new();
 
     println!(
-        "default Person first_name={}, last_name={}, age={}",
+        "default Person first_name=\"{}\", last_name=\"{}\", age={}",
         default_person.first_name, default_person.last_name, default_person.age
     );
 
     let param_inited_person = Person::from(String::from("JAJAJA"), String::from("DDD"), 10);
 
     println!(
-        "param inited Person first_name={}, last_name={}, age={}",
+        "param inited Person first_name=\"{}\", last_name=\"{}\", age={}",
         param_inited_person.first_name, param_inited_person.last_name, param_inited_person.age
     );
 
@@ -81,7 +81,7 @@ pub fn struct_example_driver() {
     let cloned_person = Person::clone(&original_person);
 
     println!(
-        "cloned Person first_name={}, last_name={}, age={}",
+        "cloned Person first_name=\"{}\", last_name=\"{}\", age={}",
         cloned_person.first_name, cloned_person.last_name, cloned_person.age
     );
 
