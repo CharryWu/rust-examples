@@ -5,6 +5,7 @@ mod move_example;
 mod reference_example;
 mod slice_example;
 mod stack;
+mod struct_example;
 mod type_utils;
 mod types;
 fn main() {
@@ -25,6 +26,7 @@ fn main() {
     dereference_example::assign_double_ref_val();
     slice_example::str_slice_example();
     slice_example::str_slice_clone();
+    struct_example::struct_example_driver();
     cat::kitten::meow();
     stack::all();
 }
