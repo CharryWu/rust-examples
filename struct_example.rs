@@ -1,3 +1,4 @@
+use std::fmt::Debug;
 /**
  * Rust does NOT have OOP features, but it has `struct` similar to C and Golang
  * Below is an example of struct field & method definitions in rust lang
@@ -60,6 +61,9 @@ impl Person {
     }
 }
 
+#[derive(Debug)]
+pub struct Animal(String, u32, String); // create struct without any fields (tuple)
+
 pub fn struct_example_driver() {
     println!("---------- struct::struct_example_driver ----------");
     Person::associated_function();
@@ -102,4 +106,9 @@ pub fn struct_example_driver() {
         "changed Person first_name = \"{}\", last_name = \"{}\", age={}",
         person.first_name, person.last_name, person.age
     );
+
+    let animal = Animal("Dog".to_string(), 10, "bulldog".to_string());
+    println!("init animal {:?}", animal);
+    let Animal(animal_type, _, _) = animal;
+    println!("extracted animal type {:?}", animal_type);
 }
