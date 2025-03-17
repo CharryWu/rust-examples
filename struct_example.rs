@@ -1,4 +1,8 @@
-use std::fmt::Debug;
+use crate::trait_example::Log;
+use std::{
+    any::Any,
+    fmt::{self, Debug},
+};
 /**
  * Rust does NOT have OOP features, but it has `struct` similar to C and Golang
  * Below is an example of struct field & method definitions in rust lang
@@ -61,54 +65,89 @@ impl Person {
     }
 }
 
+impl Log for Person {
+    fn display_info(&self, prefix: &str) {
+        if prefix.trim() == "" {
+            println!(
+                "\"{} {}\", age = {}",
+                self.first_name, self.last_name, self.age
+            );
+        }
+        println!(
+            "{} \"{} {}\", age = {}",
+            prefix, self.first_name, self.last_name, self.age
+        );
+    }
+
+    /**
+     * Override default impl of Log::test_declared_fn
+     */
+    fn test_declared_fn(&self) {
+        println!("Person::test_declared_fn");
+    }
+
+    /**
+     * Override default impl of Log::test_associated_declared_fn
+     */
+    fn test_associated_declared_fn() {
+        println!("Person::test_associated_declared_fn");
+    }
+}
 #[derive(Debug)]
 pub struct Animal(String, u32, String); // create struct without any fields (tuple)
+impl Log for Animal {
+    fn display_info(&self, prefix: &str) {
+        if prefix.trim() == "" {
+            println!("type={}, age={} name={}", self.0, self.1, self.2);
+        }
+        println!("{} type={}, age={} name={}", prefix, self.0, self.1, self.2);
+    }
+
+    /**
+     * Override default impl of Log::test_declared_fn
+     */
+    fn test_declared_fn(&self) {
+        println!("Animal::test_declared_fn");
+    }
+
+    /**
+     * Override default impl of Log::test_associated_declared_fn
+     */
+    fn test_associated_declared_fn() {
+        println!("Animal::test_associated_declared_fn");
+    }
+}
 
 pub fn struct_example_driver() {
     println!("---------- struct::struct_example_driver ----------");
     Person::associated_function();
     let default_person = Person::new();
-
-    println!(
-        "default Person first_name=\"{}\", last_name=\"{}\", age={}",
-        default_person.first_name, default_person.last_name, default_person.age
-    );
+    default_person.display_info("default Person");
 
     let param_inited_person = Person::from(String::from("JAJAJA"), String::from("DDD"), 10);
 
-    println!(
-        "param inited Person first_name=\"{}\", last_name=\"{}\", age={}",
-        param_inited_person.first_name, param_inited_person.last_name, param_inited_person.age
-    );
+    param_inited_person.display_info("param inited Person");
 
     let original_person = Person::from(String::from("CLONE"), String::from("CLONE"), 1);
     let cloned_person = Person::clone(&original_person);
-
-    println!(
-        "cloned Person first_name=\"{}\", last_name=\"{}\", age={}",
-        cloned_person.first_name, cloned_person.last_name, cloned_person.age
-    );
+    cloned_person.display_info("cloned Person");
 
     let mut person = Person {
         first_name: "Filip".to_string(),
         last_name: "Jerga".to_string(),
         age: 30,
     };
-
-    println!(
-        "init Person first_name = \"{}\", last_name = \"{}\", age={}",
-        person.first_name, person.last_name, person.age
-    );
+    person.display_info("init Person");
 
     person.change_age(33); // `person` moved as `self` of change_age
-
-    println!(
-        "changed Person first_name = \"{}\", last_name = \"{}\", age={}",
-        person.first_name, person.last_name, person.age
-    );
+    person.display_info("changed Person");
 
     let animal = Animal("Dog".to_string(), 10, "bulldog".to_string());
+    animal.display_info("init animal");
     println!("init animal {:?}", animal);
     let Animal(animal_type, _, _) = animal;
     println!("extracted animal type {:?}", animal_type);
+    // Log::test_associated_declared_fn(); // must call associated trait on implemented type
+    Person::test_associated_declared_fn();
+    Animal::test_associated_declared_fn();
 }

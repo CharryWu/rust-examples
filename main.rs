@@ -7,6 +7,7 @@ mod reference_example;
 mod slice_example;
 mod stack;
 mod struct_example;
+mod trait_example;
 mod type_utils;
 mod types;
 fn main() {
