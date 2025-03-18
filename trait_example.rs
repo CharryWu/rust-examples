@@ -15,14 +15,18 @@ pub trait ReflectLog {
 }
 
 /**
- * dyn is short for dynamic
+ * Compiler determines which fn to call at compile time.
+ * Gets replaced by Animal::reflect_log and Person::reflect_log after compilation
+ * Create multiple versions of function, depending on how many struct types
+ * implement Log trait (Animal/Person)
  */
 pub fn reflect_log(val: impl Log) {
     val.test_declared_fn();
 }
 
 /**
- * dyn is short for dynamic
+ * dyn is short for dynamic dispatch, determine which function to call at RUNTIME
+ * Smaller output file since less repetition of code
  */
 pub fn reflect_log2(val: &dyn ReflectLog) {
     val.test_reflect_log();
