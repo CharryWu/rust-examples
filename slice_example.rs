@@ -1,6 +1,7 @@
 use crate::type_utils;
-pub fn str_slice_example() {
-    println!("---------- slice_example::str_slice_example ----------");
+#[test]
+pub fn test_str_slice_example() {
+    println!("---------- slice_example::test_str_slice_example ----------");
     let message = String::from("Hello");
     let slice = &message[2..4]; // message[2, 4) == "ll"
     println!("slice = {}", slice);
@@ -8,8 +9,9 @@ pub fn str_slice_example() {
     println!("slice.len = {}", slice.len());
 }
 
-pub fn str_slice_clone() {
-    println!("---------- slice_example::str_slice_clone ----------");
+#[test]
+pub fn test_str_slice_clone() {
+    println!("---------- slice_example::test_str_slice_clone ----------");
     let mut message = String::from("Hello");
     let message_clone = message.clone(); // deep clone
     println!("before clear message = {}", message);

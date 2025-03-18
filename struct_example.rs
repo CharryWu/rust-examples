@@ -132,9 +132,9 @@ impl ReflectLog for Animal {
         println!("Animal::test_reflect_log");
     }
 }
-
-pub fn struct_example_driver() {
-    println!("---------- struct::struct_example_driver ----------");
+#[test]
+pub fn test_struct_example() {
+    println!("---------- struct::test_struct_example ----------");
     Person::associated_function();
     let default_person = Person::new();
     default_person.display_info("default Person");

@@ -1,6 +1,7 @@
 use crate::type_utils;
-pub fn define_basic_types() {
-    println!("---------- types::define_basic_types ----------");
+#[test]
+pub fn test_basic_types() {
+    println!("---------- types::test_basic_types ----------");
     let message = "Hello, world!";
     let num = 10;
     let small_num: u8 = 10; // unsinged int of 8 bits
@@ -56,9 +57,9 @@ pub fn define_basic_types() {
         byte_num
     );
 }
-
-pub fn define_compound_types() {
-    println!("---------- types::define_compound_types ----------");
+#[test]
+pub fn test_compound_types() {
+    println!("---------- types::test_compound_types ----------");
     let tuples = (1.3, "Hello World!", true);
     println!("{:?}", tuples);
     println!("{} {} {}", tuples.0, tuples.1, tuples.2);

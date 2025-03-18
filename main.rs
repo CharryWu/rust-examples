@@ -2,6 +2,7 @@ mod cat;
 mod copy_example;
 mod dereference_example;
 mod enum_example;
+mod hashmap_example;
 mod move_example;
 mod reference_example;
 mod slice_example;
@@ -11,26 +12,14 @@ mod trait_example;
 mod type_utils;
 mod types;
 fn main() {
-    types::define_basic_types();
-    types::define_compound_types();
-    copy_example::fn_arg_copied();
-    move_example::mut_reuse_not_moved();
-    move_example::immu_moved_to_fn_arg();
-    reference_example::ref_assign_basic();
-    reference_example::caller_mut_immut_reference();
-    reference_example::caller_reference_scope();
-    reference_example::caller_mut_immut_reference2();
-    reference_example::caller_reference_scope2();
-    dereference_example::dereference_str();
-    dereference_example::dereference_number();
-    dereference_example::dereference_pointer();
-    dereference_example::assign_direct_ref_val();
-    dereference_example::assign_double_ref_val();
-    slice_example::str_slice_example();
-    slice_example::str_slice_clone();
-    struct_example::struct_example_driver();
-    trait_example::trait_example_caller();
-    enum_example::enum_example_driver();
     cat::kitten::meow();
-    stack::all();
 }
+
+use rust_examples::LibPerson;
+// fn lib_runner() {
+//     let lib_person = LibPerson {
+//         full_name: "Craig Hellen".to_string(),
+//         age: 33,
+//     };
+
+// }

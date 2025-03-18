@@ -1,5 +1,6 @@
-pub fn all() {
-    println!("---------- stack::all ----------");
+#[test]
+pub fn test_stack_sample() {
+    println!("---------- stack::test_stack_sample ----------");
     c();
     d();
     f();

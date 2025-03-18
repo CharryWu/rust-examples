@@ -31,9 +31,9 @@ pub fn reflect_log(val: impl Log) {
 pub fn reflect_log2(val: &dyn ReflectLog) {
     val.test_reflect_log();
 }
-
-pub fn trait_example_caller() {
-    println!("---------- trait_example::trait_example_caller ----------");
+#[test]
+pub fn test_trait_example() {
+    println!("---------- trait_example::test_trait_example ----------");
     let person = Person::new();
     let animal = Animal("Cat".to_string(), 5, "Egyptian Mau".to_string());
     reflect_log2(&person);

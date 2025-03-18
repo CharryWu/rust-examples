@@ -1,8 +1,8 @@
 // At any given time, you can have either one mutable reference or any number of immutable references.
 // References must always be valid.
-
-pub fn ref_assign_basic() {
-    println!("---------- reference_example::ref_assign_basic ----------");
+#[test]
+pub fn test_ref_assign_basic() {
+    println!("---------- reference_example::test_ref_assign_basic ----------");
     // String is a smart pointer that doesn't own the data
     // &String reference is a simple pointer that doesn't own the data
     let message = String::from("Hello");
@@ -18,8 +18,9 @@ pub fn ref_assign_basic() {
  * We cannot have a mutable reference while we have an immutable one to the same value.
  * Note that a reference’s scope starts from where it is introduced and continues through the last time that reference is used
  */
-pub fn caller_mut_immut_reference() {
-    println!("---------- reference_example::caller_mut_immut_reference ----------");
+#[test]
+pub fn test_mut_immut_reference() {
+    println!("---------- reference_example::test_mut_immut_reference ----------");
     let mut s = String::from("hello");
     // Users of an immutable reference don’t expect the value to suddenly change out from under them!
     let r1 = &s; // no problem
@@ -36,8 +37,9 @@ pub fn caller_mut_immut_reference() {
  * For instance, this code will compile because the last usage of the immutable references is in the println!,
  * before the mutable reference is introduced:
 */
-pub fn caller_reference_scope() {
-    println!("---------- reference_example::caller_reference_scope ----------");
+#[test]
+pub fn test_reference_scope() {
+    println!("---------- reference_example::test_reference_scope ----------");
     let mut s = String::from("hello");
 
     let r1 = &s; // no problem
@@ -53,8 +55,9 @@ pub fn caller_reference_scope() {
 fn mut_str_append(val: &mut String) {
     val.push_str("_unpredictable");
 }
-pub fn caller_mut_immut_reference2() {
-    println!("---------- reference_example::caller_mut_immut_reference2 ----------");
+#[test]
+pub fn test_mut_immut_reference2() {
+    println!("---------- reference_example::test_mut_immut_reference2 ----------");
     let mut message = String::from("Hello");
     let message2: &mut String = &mut message; // mutable borrow
     message2.push_str(" World"); // message2 gets auto-dereferenced, underlying str data is accessed and mutated
@@ -62,8 +65,9 @@ pub fn caller_mut_immut_reference2() {
     println!("Reference example2: message = {}", message);
     // unpredictable_mutate(message2); // cannot access mutable borrow after immutable borrow
 }
-
-pub fn caller_reference_scope2() {
+#[test]
+pub fn test_reference_scope2() {
+    println!("---------- reference_example::test_reference_scope2 ----------");
     let mut message = String::from("Hello");
     let message2: &mut String = &mut message; // mutable borrow
     mut_str_append(message2);

@@ -68,9 +68,9 @@ pub fn check_person_id(person: &ExtendedPerson, expected: &String) -> bool {
         false
     }
 }
-
-pub fn enum_example_driver() {
-    println!("---------- enum_example::enum_example_driver ----------");
+#[test]
+pub fn test_enum() {
+    println!("---------- enum_example::test_enum ----------");
     // See https://stackoverflow.com/a/32552688 for pattern of extending a struct
     let original_person = struct_example::Person::new();
     let extended_person_male = ExtendedPerson {
