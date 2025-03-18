@@ -29,6 +29,7 @@ fn main() {
     slice_example::str_slice_example();
     slice_example::str_slice_clone();
     struct_example::struct_example_driver();
+    trait_example::trait_example_caller();
     enum_example::enum_example_driver();
     cat::kitten::meow();
     stack::all();

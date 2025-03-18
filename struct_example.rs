@@ -1,4 +1,5 @@
-use crate::trait_example::Log;
+use crate::trait_example::{Log, ReflectLog};
+
 use std::{
     any::Any,
     fmt::{self, Debug},
@@ -93,8 +94,16 @@ impl Log for Person {
         println!("Person::test_associated_declared_fn");
     }
 }
+
+impl ReflectLog for Person {
+    fn test_reflect_log(&self) {
+        println!("Person::test_reflect_log");
+    }
+}
+
 #[derive(Debug)]
-pub struct Animal(String, u32, String); // create struct without any fields (tuple)
+pub struct Animal(pub String, pub u32, pub String); // create struct without any fields (tuple)
+                                                    // NOTE: define field as `pub`. See https://stackoverflow.com/questions/24110970/tuple-struct-constructor-complains-about-private-fields
 impl Log for Animal {
     fn display_info(&self, prefix: &str) {
         if prefix.trim() == "" {
@@ -115,6 +124,12 @@ impl Log for Animal {
      */
     fn test_associated_declared_fn() {
         println!("Animal::test_associated_declared_fn");
+    }
+}
+
+impl ReflectLog for Animal {
+    fn test_reflect_log(&self) {
+        println!("Animal::test_reflect_log");
     }
 }
 
