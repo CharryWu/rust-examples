@@ -15,7 +15,7 @@ fn main() {
     cat::kitten::meow();
 }
 
-use rust_examples::LibPerson;
+use rust_examples::LibraryPerson;
 // fn lib_runner() {
 //     let lib_person = LibPerson {
 //         full_name: "Craig Hellen".to_string(),
