@@ -1,3 +1,4 @@
+use std::env;
 mod cat;
 mod copy_example;
 mod dereference_example;
@@ -12,14 +13,6 @@ mod trait_example;
 mod type_utils;
 mod types;
 fn main() {
+    env::set_var("RUST_BACKTRACE", "1");
     cat::kitten::meow();
 }
-
-use rust_examples::LibraryPerson;
-// fn lib_runner() {
-//     let lib_person = LibPerson {
-//         full_name: "Craig Hellen".to_string(),
-//         age: 33,
-//     };
-
-// }
