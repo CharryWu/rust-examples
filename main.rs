@@ -12,6 +12,8 @@ mod struct_example;
 mod trait_example;
 mod type_utils;
 mod types;
+mod lru_cache;
+
 fn main() {
     env::set_var("RUST_BACKTRACE", "1");
     cat::kitten::meow();
